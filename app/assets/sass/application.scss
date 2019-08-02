@@ -1,39 +1,49 @@
-// global styles for <a> and <p> tags
-$govuk-global-styles: true;
+// Path to assets for use with the file-url function
+// in the govuk frontend toolkit's url-helpers partial
+$path: "/public/images/";
 
-// Import GOV.UK Frontend and any extension styles if extensions have been configured
-@import "lib/extensions/extensions";
+// Import GOV.UK elements from /govuk-modules/, this will import the frontend toolkit and some base styles.
+// Take a look in /govuk-modules/_govuk-elements.scss to see which files are imported.
+@import 'govuk-elements';
 
-// Patterns that aren't in Frontend
-@import "patterns/step-by-step-navigation";
-@import "patterns/task-list";
-@import "patterns/related-items";
+// Take a look at in app/assets/sass/patterns/ to see which files are imported.
+@import 'patterns/check-your-answers';
 
-// Components that aren't in Frontend
-@import "components/cookie-banner";
+// Related items
+// (These styles will be moved to GOV.UK elements, duplicating here for now.)
+.govuk-related-items {
+  margin-top: $gutter;
+  border-top: 10px solid $govuk-blue;
+  padding-top: 5px;
+
+  .heading-medium {
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
+  }
+
+  li {
+    margin-bottom: 10px;
+    list-style-type: none;
+  }
+}
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
-
-
-.govuk-header__logo { display: none; }
-.govuk-header__content { padding-left: 0; }
-
 $site-width:  1080px;
 
-#global-header .header-wrapper { max-width: 1120px!important; }
+#global-header .header-wrapper { max-width: 1040px!important; }
 
 #global-header-bar { display: none; }
 
 #big-bar {
   background-color: #005ea5;
   height: auto;
-  width: 100%!important;
+  width: 100%;
   color: white;
 }
 
 #big-bar .big-bar-wrapper {
-  max-width: 1080px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 40px 30px 50px 30px;
 }
@@ -120,3 +130,37 @@ $site-width:  1080px;
       }
   }
 }
+
+p { font-size: 1.05em; }
+
+.content-block {
+  border-bottom: 4px solid #cecece;
+}
+
+.column-block {
+  height: auto;
+  border-bottom: 4px solid #cecece;
+
+}
+
+
+.table--striped {
+    border: 1px solid #bfc1c3;
+    font-size: 16px;
+    padding-left: 4px;
+
+    td {
+          padding-left: 15px;
+        }
+
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.int { padding-left: 15px; }
+
+thead { background: #ececec; }

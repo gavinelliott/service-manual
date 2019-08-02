@@ -15,54 +15,30 @@ You can change the service name by editing the file '/app/config.js'.
 
 ## Show navigation in the header
 
-Import the header component macro place it in the `{% block header %}`and provide `navigation` items as shown below.
+Remove the comments surrounding the unordered list with an ID of proposition links.
 
-    {% from 'header/macro.njk' import govukHeader %}
+    <nav id="proposition-menu">
+      <a href="/" id="proposition-name">Service name</a>
+      <!--
+      <ul id="proposition-links">
+        <li><a href="url-to-page-1" class="active">Navigation item #1</a></li>
+        <li><a href="url-to-page-2">Navigation item #2</a></li>
+      </ul>
+      -->
+    </nav>
 
-    {% block header %}
-      {{ govukHeader({
-        homepageUrl: "/",
-        serviceName: "Service Name",
-        serviceUrl: "#",
-        containerClasses: "govuk-width-container",
-        navigation: [
-          {
-            href: "#1",
-            text: "Navigation item 1",
-            active: true
-          },
-          {
-            href: "#2",
-            text: "Navigation item 2"
-          }
-        ]
-      }) }}
-    {% endblock %}
+An example of this can be seen in the [question-page.html](../app/views/examples/question-page.html) template.
 
-An example of this can be seen in the [blank question page](/docs/templates/question).
+## Add a phase banner
 
-## Add a phase banner
-
-Import the phase-banner component and supply tag and feedback text. The phase banner must be inside a `{% block beforeContent %}`.
+Include either the alpha or beta phase banner from the `app/views/includes/` folder.
 
 ### How to include an Alpha banner
 
-    {% from 'phase-banner/macro.njk' import govukPhaseBanner %}
-
-    {{ govukPhaseBanner({
-      tag: {
-        text: "alpha"
-      },
-      html: 'This is a new service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
-    }) }}
+    {% include "includes/phase_banner_alpha.html" %}
 
 ### How to include a Beta banner
 
-    {% from 'phase-banner/macro.njk' import govukPhaseBanner %}
+    {% include "includes/phase_banner_beta.html" %}
 
-    {{ govukPhaseBanner({
-      tag: {
-        text: "beta"
-      },
-      html: 'This is a new service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
-    }) }}
+
